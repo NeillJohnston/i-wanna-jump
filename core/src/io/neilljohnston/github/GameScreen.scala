@@ -2,14 +2,17 @@ package io.neilljohnston.github
 
 import com.badlogic.gdx.{Gdx, ScreenAdapter}
 import com.badlogic.gdx.graphics.{GL20, OrthographicCamera}
+import com.badlogic.gdx.maps.MapProperties
 import com.badlogic.gdx.maps.tiled._
 import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer
+import com.badlogic.gdx.math.Rectangle
 import com.badlogic.gdx.scenes.scene2d.Stage
 import com.badlogic.gdx.utils.viewport.{FitViewport, ScreenViewport}
 import io.neilljohnston.github.IWannaJump.Ps
 import exmath.Smooth
+import io.neilljohnston.github.Sprite.Solid
 
-class GameScreen(game: IWannaJump, val mapFile: String) extends ScreenAdapter with Smooth {
+abstract class GameScreen(game: IWannaJump, val mapFile: String) extends ScreenAdapter with Smooth {
     // Camera/screen resources
     val camera = new OrthographicCamera()
     camera.setToOrtho(false, 1280, 720)
@@ -23,10 +26,18 @@ class GameScreen(game: IWannaJump, val mapFile: String) extends ScreenAdapter wi
 
     // Get tiles from map
     val fullTiles: TiledMapTileLayer = fullMap.getLayers.get("tiles").asInstanceOf[TiledMapTileLayer]
-
-    val player = new Player
-    player.x = Ps * 32 / 2
-    player.y = Ps * 32 / 2
+    val fullSprites: TiledMapTileLayer = fullMap.getLayers.get("sprites").asInstanceOf[TiledMapTileLayer]
+    val spritesSGSM: SplitGridSpacialMap[Sprite] = new SplitGridSpacialMap[Sprite](4 * Ps, 4 * Ps, 16, 16, 0, 0)
+    for(y <- 0 until fullSprites.getHeight; x <- 0 until fullSprites.getWidth) {
+        try {
+            val cell = fullSprites.getCell(x, y)
+            val spriteType = cell.getTile.getProperties.get("type").asInstanceOf[String]
+            spritesSGSM += spriteFactory(spriteType, x * Ps, y * Ps, cell.getTile.getProperties)
+        }
+        catch {
+            case e: NullPointerException => //
+        }
+    }
 
     /**
       * Render entire screen and make logic calls.
@@ -37,14 +48,34 @@ class GameScreen(game: IWannaJump, val mapFile: String) extends ScreenAdapter wi
         Gdx.gl.glClearColor(0f, 0f, 0f, 1.0f)
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT)
 
-        // Update the game logic
-        player.searchTiles(fullTiles)
-        player.step(delta)
+        // Update sprites
+        for(s <- spritesSGSM) {
+            s match {
+                case x: Solid =>
+                    x.searchTiles(fullTiles)
+                    for(o <- spritesSGSM.intersections(x))
+                        x queueCollision o
+            }
+            s.step(delta)
+        }
 
         // Update the camera view to track the player, smoothly
-        camera.position.set(
-            (player.x - camera.position.x) * 0.25f + camera.position.x,
-            (player.y - camera.position.y) * 0.25f + camera.position.y, 0)
+        // TODO ^2
+        val bounds = new Rectangle(spritesSGSM.objects.head)
+        var newCamX = camera.position.x
+        var newCamY = camera.position.y
+        var newCamZoom = camera.zoom
+        for(s <- spritesSGSM) {
+            bounds.merge(s)
+            newCamX = bounds.x + bounds.width / 2
+            newCamY = bounds.y + bounds.height / 2
+            newCamZoom += delta * smoothTo(camera.zoom,
+                4 * math.max(bounds.width / camera.viewportWidth, bounds.height / camera.viewportHeight),
+                4.0f)
+        }
+        camera.position.x = newCamX
+        camera.position.y = newCamY
+        camera.zoom = newCamZoom
 
         // Don't allow the camera to go out of bounds
         if(camera.position.x - camera.viewportWidth / 2 < 0)
@@ -84,7 +115,9 @@ class GameScreen(game: IWannaJump, val mapFile: String) extends ScreenAdapter wi
             case e: NullPointerException =>
         }
 
-        player.draw(game.batch)
+        for(s <- spritesSGSM)
+            s.draw(game.batch)
+        spritesSGSM.updateSpace()
 
         game.batch.end()
 
@@ -95,6 +128,16 @@ class GameScreen(game: IWannaJump, val mapFile: String) extends ScreenAdapter wi
         stage draw()
         */
     }
+
+    /**
+      * Construct sprites for the map.
+      * @param spriteType       String representing what type of sprite to make
+      * @param x                X-coordinate of the cell the sprite originates from
+      * @param y                Y-coordinate
+      * @param spriteProperties Properties of the sprite
+      * @return A new sprite based on spriteType and spriteProperties
+      */
+    def spriteFactory(spriteType: String, x: Float,y: Float, spriteProperties: MapProperties): Sprite
 
     /**
       * Updates the viewports when the screen is resized.

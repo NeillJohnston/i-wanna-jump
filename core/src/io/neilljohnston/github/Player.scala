@@ -10,7 +10,11 @@ import io.neilljohnston.github.Sprite.KeyControllable
 /**
   * Created by Neill on 4/16/2017.
   */
-class Player extends FullSprite with KeyControllable with exmath.Smooth {
+class Player($x: Float, $y: Float) extends FullSprite with KeyControllable with exmath.Smooth {
+    // Set player location based on class params
+    x = $x
+    y = $y
+
     // Constants for accel/vel
     final val MagJump: Float = 12 * Ps
     final val MagVel: Float = 8 * Ps

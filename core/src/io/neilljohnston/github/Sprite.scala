@@ -107,6 +107,7 @@ object Sprite {
         def resolve(delta: Float, that: AABB): Unit = that match {
             case _: PlatformAABB => resolvePlatform(delta, that.asInstanceOf[PlatformAABB])
             case _: SlopeAABB => resolveSlope(delta, that.asInstanceOf[SlopeAABB])
+            case _: Sprite => resolveFull(delta, that.asInstanceOf[Sprite])
             case _: AABB => resolveFull(delta, that)
         }
 

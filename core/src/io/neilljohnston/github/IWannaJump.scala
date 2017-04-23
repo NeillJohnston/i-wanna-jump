@@ -2,6 +2,7 @@ package io.neilljohnston.github
 
 import com.badlogic.gdx.Game
 import com.badlogic.gdx.graphics.g2d.{BitmapFont, SpriteBatch}
+import com.badlogic.gdx.maps.MapProperties
 
 class IWannaJump extends Game {
     // Init batch, font with placeholders (do not construct, otherwise libgdx will crash)
@@ -15,7 +16,13 @@ class IWannaJump extends Game {
         batch = new SpriteBatch()
         font = new BitmapFont()
 
-        setScreen(new GameScreen(this, "test.tmx"))
+        val gameScreen = new GameScreen(this, "test.tmx") {
+            override def spriteFactory(spriteType: String, x: Float,y: Float, spriteProperties: MapProperties): Sprite = spriteType match {
+                case "player" => new Player(x, y)
+                case _ => throw new NullPointerException
+            }
+        }
+        setScreen(gameScreen)
     }
 
     /**
@@ -38,7 +45,7 @@ class IWannaJump extends Game {
     def runCommand(command: String): Unit = {
         val t = command.stripMargin.split("\\s+")
         t(0) match {
-            case "map" => setScreen(new GameScreen(this, t(1)))
+            //case "map" => setScreen(new GameScreen(this, t(1)))
             case "stop" => dispose()
             case echo => t(1) match {
                 case "-twice" => println(t(2) + " " + t(2))

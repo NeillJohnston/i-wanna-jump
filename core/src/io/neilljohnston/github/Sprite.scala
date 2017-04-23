@@ -3,7 +3,9 @@ package io.neilljohnston.github
 import com.badlogic.gdx.Gdx
 import com.badlogic.gdx.graphics.Texture
 import com.badlogic.gdx.graphics.g2d.SpriteBatch
+import com.badlogic.gdx.maps.tiled.TiledMapTileLayer
 import com.badlogic.gdx.math.Vector2
+import com.badlogic.gdx.utils.TimeUtils.millis
 import io.neilljohnston.github.AABB.{PlatformAABB, SlopeAABB}
 import io.neilljohnston.github.Sprite.{Gravity, Solid}
 import io.neilljohnston.github.IWannaJump.Ps
@@ -156,6 +158,7 @@ object Sprite {
 
         /**
           * Resolves a collision between this and a slope.
+          * TODO include slope-sticking
           * @param delta    Time passed since last step
           * @param that     Colliding SlopeAABB
           */
@@ -174,7 +177,30 @@ object Sprite {
                         v.y = 0
                     }
                 }
+            }
+        }
 
+        /**
+          * Search available tiles to find collisions.
+          * @param tiles    Relevant tiles layer
+          */
+        def searchTiles(tiles: TiledMapTileLayer): Unit = {
+            val tw = (width / Ps).toInt + 1
+            val th = (height / Ps).toInt + 1
+
+            // Scan for collisions
+            for(oy <- -1 to th; ox <- -1 to tw) {
+                val tx = (x / Ps).toInt + ox
+                val ty = (y / Ps).toInt + oy
+                try {
+                    // Get the player to collide with a tile depending on the tile "type" tag
+                    val t = tiles.getCell(tx, ty).getTile
+                    val aabb = t.getProperties.get("type").asInstanceOf[String]
+                    queueCollision(AABB.factory(tx * Ps, ty * Ps, aabb))
+                }
+                catch {
+                    case e: NullPointerException => //
+                }
             }
         }
     }
@@ -197,11 +223,49 @@ object Sprite {
       * Defines a sprite that can be controlled with the keyboard.
       */
     trait KeyControllable extends Sprite {
+        /**
+          * Input types:
+          *     Tap inputs respond when a key is pressed initially.
+          *     Hold inputs respond when a key is held down.
+          *     Rep inputs respond initially, then repeatedly with a specified period.
+          * Hashmap of (input, callback) pairs.
+          * Callback functions must take a float as a parameter, this is for passing delta as an argument.
+          */
         val tapInputs: mutable.HashMap[Int, (Float) => Unit] = new mutable.HashMap[Int, (Float) => Unit]
         val holdInputs: mutable.HashMap[Int, (Float) => Unit] = new mutable.HashMap[Int, (Float) => Unit]
+        val repInputs: mutable.HashMap[Int, (Float) => Unit] = new mutable.HashMap[Int, (Float) => Unit]
 
+        /**
+          * Timers and timings for repeated inputs.
+          * Int -> (Long, Long) explanation: Int is the keycode from gdx.Input.Keys. The first long is the number of
+          * milliseconds until repeat, the second long is the next scheduled repeat time.
+          */
+        val repInputTimers: mutable.HashMap[Int, (Long, Long)] = new mutable.HashMap[Int, (Long, Long)]
+
+        /**
+          * Add to the tap input map.
+          * @param key      Key to respond to, a magic number from gdx.Input.Keys
+          * @param callback Function to perform when the key is called
+          */
         def addTapInput(key: Int, callback: (Float) => Unit): Unit = { tapInputs += (key -> callback) }
+
+        /**
+          * Add to the hold input map.
+          * @param key      Key to respond to, a magic number from gdx.Input.Keys
+          * @param callback Function to perform when the key is called
+          */
         def addHoldInput(key: Int, callback: (Float) => Unit): Unit = { holdInputs += (key -> callback) }
+
+        /**
+          * Add to the rep input map.
+          * @param key      Key to respond to, a magic number from gdx.Input.Keys
+          * @param callback Function to perform when the key is called
+          * @param r        Period of repetition for this callback
+          */
+        def addRepInput(key: Int, callback: (Float) => Unit, r: Long): Unit = {
+            repInputs += (key -> callback)
+            repInputTimers += (key -> (r, 0l))
+        }
 
         /**
           * Call on the inputs.
@@ -214,7 +278,29 @@ object Sprite {
             for((key, callback) <- holdInputs)
                 if(Gdx.input.isKeyPressed(key))
                     callback(delta)
+            for((key, callback) <- repInputs) {
+                val r = repInputTimers(key)._1
+                val t = repInputTimers(key)._2
+                if (Gdx.input.isKeyPressed(key) && millis > t) {
+                    callback(delta)
+                    repInputTimers(key) = (r, millis + r)
+                }
+            }
         }
+
+        /**
+          * Convenience reference to Gdx.input.isKeyPressed.
+          * @param key  Key
+          * @return True if key is down, false otherwise
+          */
+        def keyDown(key: Int): Boolean = Gdx.input.isKeyPressed(key)
+
+        /**
+          * Convenience reference to Gdx.input.isKeyJustPressed.
+          * @param key  Key
+          * @return True if key was just pressed, false otherwise
+          */
+        def keyPress(key: Int): Boolean = Gdx.input.isKeyJustPressed(key)
     }
 }
 

@@ -29,13 +29,14 @@ class Player extends FullSprite with KeyControllable with exmath.Smooth {
     addHoldInput(Keys.RIGHT, (d: Float) => if(v.y == 0) v.x += smoothTo(v.x, MagVel, 20f) * d else v.x += smoothTo(v.x, MagVel, 8f) * d)
     addTapInput(Keys.SPACE, (_: Float) => if(v.y == 0) v.y = MagJump)
     addHoldInput(Keys.SPACE, (d: Float) => if(v.y > 0) v.y -= FloatUp * d else v.y -= FloatDown * d)
+    addRepInput(Keys.DOWN, (d: Float) => v.y = MagJump / 2, 500)
 
     /**
       * Apply gravity to the sprite.
       * @param delta    Time passed since last step
       */
     override def applyGravity(delta: Float): Unit = {
-        if(Gdx.input.isKeyPressed(Keys.SPACE))
+        if(keyDown(Keys.SPACE))
             v.y = -accelWithMax(-v.y, -gMax * 0.6f, -g * delta)
         else
             v.y = -accelWithMax(-v.y, -gMax, -g * delta)
@@ -48,11 +49,11 @@ class Player extends FullSprite with KeyControllable with exmath.Smooth {
     override def step(delta: Float): Unit = {
         callInputs(delta)
         super.step(delta)
-        if(!Gdx.input.isKeyPressed(Keys.LEFT) && !Gdx.input.isKeyPressed(Keys.RIGHT) && v.y == 0)
+        if(!keyDown(Keys.LEFT) && !keyDown(Keys.RIGHT) && v.y == 0)
             v.x *= 0.6f
-        if(!Gdx.input.isKeyPressed(Keys.LEFT) && !Gdx.input.isKeyPressed(Keys.RIGHT) && v.y != 0)
+        if(!keyDown(Keys.LEFT) && !keyDown(Keys.RIGHT) && v.y != 0)
             v.x *= 0.95f
     }
 
-    //override def draw(batch: SpriteBatch): Unit = batch.draw(toDraw, x - 8, y - 4, Ps, Ps)
+    override def draw(batch: SpriteBatch): Unit = batch.draw(toDraw, x - 8, y - 4, Ps, Ps)
 }

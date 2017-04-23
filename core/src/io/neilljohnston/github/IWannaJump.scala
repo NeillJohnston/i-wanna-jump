@@ -15,7 +15,7 @@ class IWannaJump extends Game {
         batch = new SpriteBatch()
         font = new BitmapFont()
 
-        setScreen(new GameScreen(this))
+        setScreen(new GameScreen(this, "test.tmx"))
     }
 
     /**
@@ -29,6 +29,22 @@ class IWannaJump extends Game {
     override def dispose(): Unit = {
         batch.dispose()
         font.dispose()
+    }
+
+    /**
+      * Derpy little command system.
+      * @param command  Command
+      */
+    def runCommand(command: String): Unit = {
+        val t = command.stripMargin.split("\\s+")
+        t(0) match {
+            case "map" => setScreen(new GameScreen(this, t(1)))
+            case "stop" => dispose()
+            case echo => t(1) match {
+                case "-twice" => println(t(2) + " " + t(2))
+                case _ => println(t(1))
+            }
+        }
     }
 }
 

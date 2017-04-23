@@ -43,6 +43,17 @@ object AABB {
     }
 
     /**
+      * The AABB when you don't want an AABB!
+      * Used for assigning cosmetics in the tiles layer of a map.
+      */
+    class NoneAABB extends AABB {
+        x = Float.MinValue
+        y = 0
+        width = 0
+        height = 0
+    }
+
+    /**
       * Constructs a new AABB of type T.
       * @param x    X-coordinate of AABB
       * @param y    Y-coordinate of AABB
@@ -52,6 +63,7 @@ object AABB {
     def factory(x: Float, y: Float, aabb: String): AABB = {
         val t = aabb match {
             case "platform" => new PlatformAABB
+            case "cosmetic" => new NoneAABB
             case "slope.1" => new SlopeAABB(1, 0)
             case "slope.-1" => new SlopeAABB(-1, 1)
             case "slope.0.5,0" => new SlopeAABB(0.5f, 0)
@@ -60,10 +72,12 @@ object AABB {
             case "slope.-0.5,0.5" => new SlopeAABB(-0.5f, 0.5f)
             case _ => new AABB
         }
-        t.x = x
-        t.y = y
-        t.width = Ps
-        t.height = Ps
+        if(aabb != "cosmetic") {
+            t.x = x
+            t.y = y
+            t.width = Ps
+            t.height = Ps
+        }
         t
     }
 

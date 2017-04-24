@@ -1,11 +1,12 @@
-package io.neilljohnston.github
+package io.github.neilljohnston.iwannajump
 
 import com.badlogic.gdx.Gdx
 import com.badlogic.gdx.Input.Keys
 import com.badlogic.gdx.graphics.Texture
 import com.badlogic.gdx.graphics.g2d.{SpriteBatch, TextureRegion}
-import io.neilljohnston.github.IWannaJump.Ps
-import io.neilljohnston.github.Sprite.KeyControllable
+import io.github.neilljohnston.iwannajump.elements.FullSprite
+import io.github.neilljohnston.iwannajump.engine.IWannaJump.Ps
+import io.github.neilljohnston.iwannajump.elements.Sprite.KeyControllable
 
 /**
   * Created by Neill on 4/16/2017.

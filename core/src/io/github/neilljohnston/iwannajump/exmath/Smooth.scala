@@ -1,4 +1,4 @@
-package io.neilljohnston.github.exmath
+package io.github.neilljohnston.iwannajump.exmath
 
 trait Smooth {
     def bungeeSin(x: Float): Float = math.sin(x * math.Pi / 2).toFloat

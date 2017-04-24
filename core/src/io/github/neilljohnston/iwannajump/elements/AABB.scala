@@ -1,9 +1,7 @@
-package io.neilljohnston.github
+package io.github.neilljohnston.iwannajump.elements
 
 import com.badlogic.gdx.math.Rectangle
-import io.neilljohnston.github.IWannaJump.Ps
-
-import scala.reflect.ClassTag
+import io.github.neilljohnston.iwannajump.engine.IWannaJump.Ps
 
 /**
   * A simple axis-aligned bounding box (AABB).

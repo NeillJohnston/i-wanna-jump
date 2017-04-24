@@ -1,9 +1,9 @@
-package io.neilljohnston.github.desktop;
+package io.github.neilljohnston.iwannajump.desktop;
 
 import com.badlogic.gdx.Files;
 import com.badlogic.gdx.backends.lwjgl.LwjglApplication;
 import com.badlogic.gdx.backends.lwjgl.LwjglApplicationConfiguration;
-import io.neilljohnston.github.IWannaJump;
+import io.github.neilljohnston.iwannajump.engine.IWannaJump;
 
 public class DesktopLauncher {
 	public static void main (String[] arg) {

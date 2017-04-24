@@ -1,4 +1,4 @@
-package io.neilljohnston.github
+package io.github.neilljohnston.iwannajump.engine
 
 import com.badlogic.gdx.math.Rectangle
 
@@ -24,7 +24,7 @@ import scala.collection.mutable
   * @tparam T   A subclass of Rectangle that can be iterated over, most probably going to be a Sprite
   */
 class SplitGridSpacialMap[T <: Rectangle](cellWidth: Float, cellHeight: Float, val gridWidth: Int, val gridHeight: Int,
-        var xOffset: Float = 0, var yOffset: Float = 0) extends mutable.Iterable[T] {
+        var xOffset: Float = 0, var yOffset: Float = 0) extends Iterable[T] with BroadMap[T] {
     // Contains objects that will be checked and mapped. It's a hashset for obvious reasons.
     // TODO document the reasons that should be obvious.
     val objects: mutable.HashSet[T] = new mutable.HashSet[T]
@@ -40,6 +40,18 @@ class SplitGridSpacialMap[T <: Rectangle](cellWidth: Float, cellHeight: Float, v
     // How much the offset grid is offset by.
     val offCellWidth: Float = cellWidth / 2
     val offCellHeight: Float = cellHeight / 2
+
+    /**
+      * Add an object to the spacial map.
+      * @param that The object to add
+      */
+    override def add(that: T): Unit = objects += that
+
+    /**
+      * Remove an object from the spacial map.
+      * @param that The object to remove
+      */
+    override def remove(that: T): Unit = objects -= that
 
     /**
       * Add an object to the spacial map.
@@ -68,7 +80,7 @@ class SplitGridSpacialMap[T <: Rectangle](cellWidth: Float, cellHeight: Float, v
     /**
       * Update each object in the map.
       */
-    def updateSpace(): Unit = {
+    def update(): Unit = {
         // Clear the hashsets at first
         for((x, y) <- populatedSpace) space(x)(y) = new mutable.HashSet[T]
         for((x, y) <- populatedSpaceOff) spaceOff(x)(y) = new mutable.HashSet[T]
@@ -106,7 +118,7 @@ class SplitGridSpacialMap[T <: Rectangle](cellWidth: Float, cellHeight: Float, v
       * @param that A rectangle to be tested for spacial region
       * @return All objects that could possibly intersect with that
       */
-    def intersections(that: T): Set[T] = {
+    def scan(that: T): Set[T] = {
         val(x, y, xOff, yOff) = spaceLocation(that)
         try {
             val inSpace = (for (o <- space(x)(y)) yield o).toSet
@@ -128,6 +140,10 @@ class SplitGridSpacialMap[T <: Rectangle](cellWidth: Float, cellHeight: Float, v
         yOffset = y
     }
 
+    /**
+      * Returns an iterator of all the objects in the SGSM.
+      * @return Iterator from objects
+      */
     override def iterator: Iterator[T] = {
         objects.iterator
     }

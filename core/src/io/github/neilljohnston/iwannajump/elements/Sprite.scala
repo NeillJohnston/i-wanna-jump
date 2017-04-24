@@ -1,4 +1,4 @@
-package io.neilljohnston.github
+package io.github.neilljohnston.iwannajump.elements
 
 import com.badlogic.gdx.Gdx
 import com.badlogic.gdx.graphics.Texture
@@ -6,10 +6,10 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch
 import com.badlogic.gdx.maps.tiled.TiledMapTileLayer
 import com.badlogic.gdx.math.Vector2
 import com.badlogic.gdx.utils.TimeUtils.millis
-import io.neilljohnston.github.AABB.{PlatformAABB, SlopeAABB}
-import io.neilljohnston.github.Sprite.{Gravity, Solid}
-import io.neilljohnston.github.IWannaJump.Ps
-import io.neilljohnston.github.exmath.Smooth
+import io.github.neilljohnston.iwannajump.elements.AABB.{PlatformAABB, SlopeAABB}
+import io.github.neilljohnston.iwannajump.engine.IWannaJump.Ps
+import io.github.neilljohnston.iwannajump.elements.Sprite.{Gravity, Solid}
+import io.github.neilljohnston.iwannajump.exmath.Smooth
 
 import scala.collection.mutable
 

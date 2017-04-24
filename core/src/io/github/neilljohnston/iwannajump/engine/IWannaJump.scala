@@ -1,8 +1,10 @@
-package io.neilljohnston.github
+package io.github.neilljohnston.iwannajump.engine
 
 import com.badlogic.gdx.Game
 import com.badlogic.gdx.graphics.g2d.{BitmapFont, SpriteBatch}
 import com.badlogic.gdx.maps.MapProperties
+import io.github.neilljohnston.iwannajump.Player
+import io.github.neilljohnston.iwannajump.elements.Sprite
 
 class IWannaJump extends Game {
     // Init batch, font with placeholders (do not construct, otherwise libgdx will crash)

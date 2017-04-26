@@ -2,36 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="468d1b35-b0ed-49d1-880e-6c735da4debf" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/src/io/github/neilljohnston/iwannajump/engine/BroadMap.scala" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/src/io/github/neilljohnston/iwannajump/roadmap.md" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/core/build/classes/main/io/neilljohnston/github/AABB$.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/core/build/classes/main/io/neilljohnston/github/AABB$PlatformAABB.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/core/build/classes/main/io/neilljohnston/github/AABB$SlopeAABB.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/core/build/classes/main/io/neilljohnston/github/AABB.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/core/build/classes/main/io/neilljohnston/github/FullSprite.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/core/build/classes/main/io/neilljohnston/github/GameScreen.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/core/build/classes/main/io/neilljohnston/github/IWannaJump$.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/core/build/classes/main/io/neilljohnston/github/IWannaJump.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/core/build/classes/main/io/neilljohnston/github/Player.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/core/build/classes/main/io/neilljohnston/github/Sprite$.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/core/build/classes/main/io/neilljohnston/github/Sprite$Gravity.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/core/build/classes/main/io/neilljohnston/github/Sprite$KeyControllable.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/core/build/classes/main/io/neilljohnston/github/Sprite$Solid.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/core/build/classes/main/io/neilljohnston/github/Sprite.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/core/build/classes/main/io/neilljohnston/github/exmath/Smooth.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/core/build/classes/main/io/neilljohnston/github/exmath/SplitGridSpacialMap$.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/core/build/classes/main/io/neilljohnston/github/exmath/SplitGridSpacialMap.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/desktop/build/classes/main/io/neilljohnston/github/desktop/DesktopLauncher.class" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/core/src/io/neilljohnston/github/AABB.scala" afterPath="$PROJECT_DIR$/core/src/io/github/neilljohnston/iwannajump/elements/AABB.scala" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/core/src/io/neilljohnston/github/GameScreen.scala" afterPath="$PROJECT_DIR$/core/src/io/github/neilljohnston/iwannajump/engine/GameScreen.scala" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/core/src/io/neilljohnston/github/IWannaJump.scala" afterPath="$PROJECT_DIR$/core/src/io/github/neilljohnston/iwannajump/engine/IWannaJump.scala" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/core/src/io/neilljohnston/github/Player.scala" afterPath="$PROJECT_DIR$/core/src/io/github/neilljohnston/iwannajump/Player.scala" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/core/src/io/neilljohnston/github/SplitGridSpacialMap.scala" afterPath="$PROJECT_DIR$/core/src/io/github/neilljohnston/iwannajump/engine/SplitGridSpacialMap.scala" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/core/src/io/neilljohnston/github/Sprite.scala" afterPath="$PROJECT_DIR$/core/src/io/github/neilljohnston/iwannajump/elements/Sprite.scala" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/core/src/io/neilljohnston/github/exmath/Smooth.scala" afterPath="$PROJECT_DIR$/core/src/io/github/neilljohnston/iwannajump/exmath/Smooth.scala" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/desktop/src/io/neilljohnston/github/desktop/DesktopLauncher.java" afterPath="$PROJECT_DIR$/desktop/src/io/github/neilljohnston/iwannajump/desktop/DesktopLauncher.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/desktop/build.gradle" afterPath="$PROJECT_DIR$/desktop/build.gradle" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/assets/test.tmx" afterPath="$PROJECT_DIR$/core/assets/test.tmx" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/io/github/neilljohnston/iwannajump/Player.scala" afterPath="$PROJECT_DIR$/core/src/io/github/neilljohnston/iwannajump/Player.scala" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/io/github/neilljohnston/iwannajump/elements/AABB.scala" afterPath="$PROJECT_DIR$/core/src/io/github/neilljohnston/iwannajump/elements/AABB.scala" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/io/github/neilljohnston/iwannajump/elements/Sprite.scala" afterPath="$PROJECT_DIR$/core/src/io/github/neilljohnston/iwannajump/elements/Sprite.scala" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/io/github/neilljohnston/iwannajump/engine/SplitGridSpacialMap.scala" afterPath="$PROJECT_DIR$/core/src/io/github/neilljohnston/iwannajump/engine/SplitGridSpacialMap.scala" />
     </list>
     <ignored path="$PROJECT_DIR$/core/.gradle/" />
     <ignored path="$PROJECT_DIR$/core/build/" />
@@ -58,7 +34,7 @@
         <entry file="file://$PROJECT_DIR$/core/src/io/github/neilljohnston/iwannajump/roadmap.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="656">
+              <first_editor relative-caret-position="432">
                 <caret line="27" column="0" lean-forward="false" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
                 <folding />
               </first_editor>
@@ -67,26 +43,12 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="IWannaJump.scala" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/core/src/io/github/neilljohnston/iwannajump/engine/IWannaJump.scala">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="192">
-              <caret line="12" column="0" lean-forward="true" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
-              <folding>
-                <element signature="e#51#79#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="GameScreen.scala" pinned="false" current-in-tab="true">
+      <file leaf-file-name="GameScreen.scala" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/core/src/io/github/neilljohnston/iwannajump/engine/GameScreen.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2912">
-              <caret line="25" column="0" lean-forward="true" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
-              <folding>
-                <element signature="e#51#110#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="1568">
+              <caret line="108" column="42" lean-forward="false" selection-start-line="108" selection-start-column="42" selection-end-line="108" selection-end-column="42" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -104,14 +66,16 @@
       <file leaf-file-name="Sprite.scala" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/core/src/io/github/neilljohnston/iwannajump/elements/Sprite.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="188">
-              <caret line="311" column="3" lean-forward="false" selection-start-line="311" selection-start-column="3" selection-end-line="311" selection-end-column="3" />
+            <state relative-caret-position="379">
+              <caret line="191" column="64" lean-forward="true" selection-start-line="191" selection-start-column="64" selection-end-line="191" selection-end-column="64" />
               <folding>
                 <element signature="e#53#80#0" expanded="true" />
-                <element signature="e#5906#6584#0" expanded="false" />
-                <element signature="e#8541#8840#0" expanded="false" />
-                <element signature="e#8967#12480#0" expanded="false" />
-                <element signature="e#10749#11203#0" expanded="false" />
+                <element signature="e#4795#5814#0" expanded="false" />
+                <element signature="e#5824#6502#0" expanded="false" />
+                <element signature="e#6512#7425#0" expanded="false" />
+                <element signature="e#9091#9390#0" expanded="false" />
+                <element signature="e#9517#13030#0" expanded="false" />
+                <element signature="e#11299#11753#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -120,20 +84,18 @@
       <file leaf-file-name="AABB.scala" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/core/src/io/github/neilljohnston/iwannajump/elements/AABB.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="208">
-              <caret line="13" column="7" lean-forward="false" selection-start-line="13" selection-start-column="7" selection-end-line="13" selection-end-column="7" />
-              <folding>
-                <element signature="e#53#91#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="1392">
+              <caret line="88" column="0" lean-forward="false" selection-start-line="88" selection-start-column="0" selection-end-line="88" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SplitGridSpacialMap.scala" pinned="false" current-in-tab="false">
+      <file leaf-file-name="SplitGridSpacialMap.scala" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/core/src/io/github/neilljohnston/iwannajump/engine/SplitGridSpacialMap.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="448">
-              <caret line="28" column="7" lean-forward="false" selection-start-line="28" selection-start-column="7" selection-end-line="28" selection-end-column="7" />
+            <state relative-caret-position="16">
+              <caret line="114" column="0" lean-forward="false" selection-start-line="114" selection-start-column="0" selection-end-line="114" selection-end-column="0" />
               <folding>
                 <element signature="e#51#89#0" expanded="true" />
               </folding>
@@ -144,8 +106,8 @@
       <file leaf-file-name="BroadMap.scala" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/core/src/io/github/neilljohnston/iwannajump/engine/BroadMap.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="128">
-              <caret line="8" column="35" lean-forward="false" selection-start-line="8" selection-start-column="35" selection-end-line="8" selection-end-column="35" />
+            <state relative-caret-position="384">
+              <caret line="24" column="8" lean-forward="false" selection-start-line="24" selection-start-column="8" selection-end-line="24" selection-end-column="8" />
               <folding />
             </state>
           </provider>
@@ -154,8 +116,8 @@
       <file leaf-file-name="Player.scala" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/core/src/io/github/neilljohnston/iwannajump/Player.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="144">
-              <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+            <state relative-caret-position="465">
+              <caret line="65" column="0" lean-forward="true" selection-start-line="65" selection-start-column="0" selection-end-line="65" selection-end-column="0" />
               <folding>
                 <element signature="e#44#71#0" expanded="true" />
               </folding>
@@ -965,12 +927,13 @@
         <option value="$PROJECT_DIR$/core/src/io/github/neilljohnston/iwannajump/engine/Broadphase.scala" />
         <option value="$PROJECT_DIR$/core/src/io/github/neilljohnston/iwannajump/engine/BroadphaseMap.scala" />
         <option value="$PROJECT_DIR$/core/src/io/github/neilljohnston/iwannajump/engine/BroadMap.scala" />
-        <option value="$PROJECT_DIR$/core/src/io/github/neilljohnston/iwannajump/engine/SplitGridSpacialMap.scala" />
-        <option value="$PROJECT_DIR$/core/src/io/github/neilljohnston/iwannajump/Player.scala" />
-        <option value="$PROJECT_DIR$/core/src/io/github/neilljohnston/iwannajump/elements/Sprite.scala" />
         <option value="$PROJECT_DIR$/core/src/io/github/neilljohnston/iwannajump/engine/IWannaJump.scala" />
         <option value="$PROJECT_DIR$/desktop/build.gradle" />
+        <option value="$PROJECT_DIR$/core/src/io/github/neilljohnston/iwannajump/Player.scala" />
+        <option value="$PROJECT_DIR$/core/src/io/github/neilljohnston/iwannajump/elements/AABB.scala" />
         <option value="$PROJECT_DIR$/core/src/io/github/neilljohnston/iwannajump/engine/GameScreen.scala" />
+        <option value="$PROJECT_DIR$/core/src/io/github/neilljohnston/iwannajump/engine/SplitGridSpacialMap.scala" />
+        <option value="$PROJECT_DIR$/core/src/io/github/neilljohnston/iwannajump/elements/Sprite.scala" />
       </list>
     </option>
   </component>
@@ -1089,54 +1052,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="desktop" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="org.jetbrains.plugins.gradle.projectView.GradleTreeStructureProvider$GradleSourceSetDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="io" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="i-wanna-jump" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="i-wanna-jump" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="desktop" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="org.jetbrains.plugins.gradle.projectView.GradleTreeStructureProvider$GradleSourceSetDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="io" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="desktop" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="i-wanna-jump" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="i-wanna-jump" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="core" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -1189,37 +1104,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="i-wanna-jump" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="i-wanna-jump" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="core" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="org.jetbrains.plugins.gradle.projectView.GradleTreeStructureProvider$GradleSourceSetDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="iwannajump" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="elements" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
+      <pane id="Scratches" />
       <pane id="PackagesPane" />
       <pane id="Scope" />
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -1559,7 +1448,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -1582,8 +1470,7 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="GhcMod" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17697228" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20309168" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -1593,6 +1480,7 @@
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="SBT" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32936078" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1647,33 +1535,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#51#110#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/io/github/neilljohnston/iwannajump/elements/Sprite.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1808">
-          <caret line="113" column="17" lean-forward="false" selection-start-line="113" selection-start-column="17" selection-end-line="113" selection-end-column="17" />
-          <folding>
-            <element signature="e#53#80#0" expanded="true" />
-            <element signature="e#5906#6584#0" expanded="false" />
-            <element signature="e#8541#8840#0" expanded="false" />
-            <element signature="e#8967#12480#0" expanded="false" />
-            <element signature="e#10749#11203#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/io/github/neilljohnston/iwannajump/engine/GameScreen.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#51#110#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1683,10 +1545,12 @@
           <caret line="113" column="17" lean-forward="true" selection-start-line="113" selection-start-column="17" selection-end-line="113" selection-end-column="17" />
           <folding>
             <element signature="e#53#80#0" expanded="true" />
-            <element signature="e#5906#6584#0" expanded="false" />
-            <element signature="e#8541#8840#0" expanded="false" />
-            <element signature="e#8967#12480#0" expanded="false" />
-            <element signature="e#10749#11203#0" expanded="false" />
+            <element signature="e#4795#5814#0" expanded="false" />
+            <element signature="e#5824#6502#0" expanded="false" />
+            <element signature="e#6512#7425#0" expanded="false" />
+            <element signature="e#9091#9390#0" expanded="false" />
+            <element signature="e#9517#13030#0" expanded="false" />
+            <element signature="e#11299#11753#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1729,10 +1593,12 @@
           <caret line="7" column="0" lean-forward="true" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
           <folding>
             <element signature="e#53#80#0" expanded="true" />
-            <element signature="e#5906#6584#0" expanded="false" />
-            <element signature="e#8541#8840#0" expanded="false" />
-            <element signature="e#8967#12480#0" expanded="false" />
-            <element signature="e#10749#11203#0" expanded="false" />
+            <element signature="e#4795#5814#0" expanded="false" />
+            <element signature="e#5824#6502#0" expanded="false" />
+            <element signature="e#6512#7425#0" expanded="false" />
+            <element signature="e#9091#9390#0" expanded="false" />
+            <element signature="e#9517#13030#0" expanded="false" />
+            <element signature="e#11299#11753#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1846,38 +1712,35 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/io/neilljohnston/github/Test.java">
+    <entry file="file://$PROJECT_DIR$/core/src/io/neilljohnston/github/Test.java" />
+    <entry file="file://$PROJECT_DIR$/core/src/io/neilljohnston/github/iwannajump/package.scala" />
+    <entry file="file://$PROJECT_DIR$/core/src/io/github/neilljohnston/iwannajump/engine/GameLogic.scala" />
+    <entry file="file://$PROJECT_DIR$/desktop/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="11" column="29" lean-forward="true" selection-start-line="11" selection-start-column="29" selection-end-line="11" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/desktop/src/io/github/neilljohnston/iwannajump/desktop/DesktopLauncher.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="96">
-          <caret line="6" column="4" lean-forward="false" selection-start-line="6" selection-start-column="4" selection-end-line="6" selection-end-column="4" />
-          <folding />
+          <caret line="6" column="0" lean-forward="true" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/io/neilljohnston/github/iwannajump/package.scala">
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.badlogicgames.gdx/gdx-backend-lwjgl/1.9.6/54887b828ab0c6c55deae03b0cca70c31531bacd/gdx-backend-lwjgl-1.9.6-sources.jar!/com/badlogic/gdx/backends/lwjgl/LwjglApplication.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="195">
+          <caret line="132" column="0" lean-forward="false" selection-start-line="132" selection-start-column="0" selection-end-line="132" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/io/github/neilljohnston/iwannajump/engine/GameLogic.scala">
+    <entry file="file://$PROJECT_DIR$/core/src/io/github/neilljohnston/iwannajump/engine/IWannaJump.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="80">
-          <caret line="5" column="6" lean-forward="false" selection-start-line="5" selection-start-column="6" selection-end-line="5" selection-end-column="6" />
+        <state relative-caret-position="128">
+          <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/io/github/neilljohnston/iwannajump/roadmap.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="656">
-            <caret line="27" column="0" lean-forward="false" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
-            <folding />
-          </first_editor>
-          <second_editor />
         </state>
       </provider>
     </entry>
@@ -1889,100 +1752,88 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/io/github/neilljohnston/iwannajump/elements/AABB.scala">
+    <entry file="file://$PROJECT_DIR$/core/src/io/github/neilljohnston/iwannajump/roadmap.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="432">
+            <caret line="27" column="0" lean-forward="false" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
+            <folding />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/net.java.jinput/jinput/2.0.5/39c7796b469a600f72380316f6b1f11db6c2c7c4/jinput-2.0.5.jar!/net/java/games/input/LinuxDeviceThread.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="208">
-          <caret line="13" column="7" lean-forward="false" selection-start-line="13" selection-start-column="7" selection-end-line="13" selection-end-column="7" />
-          <folding>
-            <element signature="e#53#91#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="96">
+          <caret line="11" column="12" lean-forward="false" selection-start-line="11" selection-start-column="12" selection-end-line="11" selection-end-column="12" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/core/src/io/github/neilljohnston/iwannajump/engine/BroadMap.scala">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="384">
+          <caret line="24" column="8" lean-forward="false" selection-start-line="24" selection-start-column="8" selection-end-line="24" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/io/github/neilljohnston/iwannajump/engine/GameScreen.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1568">
+          <caret line="108" column="42" lean-forward="false" selection-start-line="108" selection-start-column="42" selection-end-line="108" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/io/github/neilljohnston/iwannajump/engine/InfiniteSpacialMap.scala">
+      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="128">
-          <caret line="8" column="35" lean-forward="false" selection-start-line="8" selection-start-column="35" selection-end-line="8" selection-end-column="35" />
+          <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/io/github/neilljohnston/iwannajump/elements/AABB.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1392">
+          <caret line="88" column="0" lean-forward="false" selection-start-line="88" selection-start-column="0" selection-end-line="88" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/core/src/io/github/neilljohnston/iwannajump/Player.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+        <state relative-caret-position="465">
+          <caret line="65" column="0" lean-forward="true" selection-start-line="65" selection-start-column="0" selection-end-line="65" selection-end-column="0" />
           <folding>
             <element signature="e#44#71#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/desktop/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="11" column="29" lean-forward="true" selection-start-line="11" selection-start-column="29" selection-end-line="11" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/desktop/src/io/github/neilljohnston/iwannajump/desktop/DesktopLauncher.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="96">
-          <caret line="6" column="0" lean-forward="true" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/core/src/io/github/neilljohnston/iwannajump/elements/Sprite.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="188">
-          <caret line="311" column="3" lean-forward="false" selection-start-line="311" selection-start-column="3" selection-end-line="311" selection-end-column="3" />
+        <state relative-caret-position="379">
+          <caret line="191" column="64" lean-forward="true" selection-start-line="191" selection-start-column="64" selection-end-line="191" selection-end-column="64" />
           <folding>
             <element signature="e#53#80#0" expanded="true" />
-            <element signature="e#5906#6584#0" expanded="false" />
-            <element signature="e#8541#8840#0" expanded="false" />
-            <element signature="e#8967#12480#0" expanded="false" />
-            <element signature="e#10749#11203#0" expanded="false" />
+            <element signature="e#4795#5814#0" expanded="false" />
+            <element signature="e#5824#6502#0" expanded="false" />
+            <element signature="e#6512#7425#0" expanded="false" />
+            <element signature="e#9091#9390#0" expanded="false" />
+            <element signature="e#9517#13030#0" expanded="false" />
+            <element signature="e#11299#11753#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/core/src/io/github/neilljohnston/iwannajump/engine/SplitGridSpacialMap.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="448">
-          <caret line="28" column="7" lean-forward="false" selection-start-line="28" selection-start-column="7" selection-end-line="28" selection-end-column="7" />
+        <state relative-caret-position="16">
+          <caret line="114" column="0" lean-forward="false" selection-start-line="114" selection-start-column="0" selection-end-line="114" selection-end-column="0" />
           <folding>
             <element signature="e#51#89#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.badlogicgames.gdx/gdx-backend-lwjgl/1.9.6/54887b828ab0c6c55deae03b0cca70c31531bacd/gdx-backend-lwjgl-1.9.6-sources.jar!/com/badlogic/gdx/backends/lwjgl/LwjglApplication.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="132" column="0" lean-forward="false" selection-start-line="132" selection-start-column="0" selection-end-line="132" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/io/github/neilljohnston/iwannajump/engine/IWannaJump.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="192">
-          <caret line="12" column="0" lean-forward="true" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
-          <folding>
-            <element signature="e#51#79#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/io/github/neilljohnston/iwannajump/engine/GameScreen.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2912">
-          <caret line="25" column="0" lean-forward="true" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
-          <folding>
-            <element signature="e#51#110#0" expanded="true" />
           </folding>
         </state>
       </provider>

@@ -30,8 +30,8 @@ class SplitGridSpacialMap[T <: Rectangle](cellWidth: Float, cellHeight: Float, v
     val objects: mutable.HashSet[T] = new mutable.HashSet[T]
 
     // Two space components, the "normal" one and the offset one.
-    val space: Array[Array[mutable.HashSet[T]]] = Array.ofDim(gridHeight, gridWidth)
-    val spaceOff: Array[Array[mutable.HashSet[T]]] = Array.ofDim(gridHeight, gridWidth)
+    val space: Array[Array[mutable.HashSet[T]]] = Array.fill[mutable.HashSet[T]](gridHeight, gridWidth)(new mutable.HashSet[T])
+    val spaceOff: Array[Array[mutable.HashSet[T]]] = Array.fill[mutable.HashSet[T]](gridHeight, gridWidth)(new mutable.HashSet[T])
 
     // Two additional structures to save the populated cell locations.
     val populatedSpace: mutable.HashSet[(Int, Int)] = new mutable.HashSet[(Int, Int)]
@@ -96,7 +96,7 @@ class SplitGridSpacialMap[T <: Rectangle](cellWidth: Float, cellHeight: Float, v
                 populatedSpaceOff += ((xOff, yOff))
             }
             catch {
-                case e: NullPointerException => //
+                case e: NullPointerException => e.printStackTrace() // This shouldn't ever happen
             }
         }
     }
@@ -115,18 +115,18 @@ class SplitGridSpacialMap[T <: Rectangle](cellWidth: Float, cellHeight: Float, v
 
     /**
       * Find possible intersections with that.
-      * @param that A rectangle to be tested for spacial region
+      * @param that A T object to be tested for spacial region
       * @return All objects that could possibly intersect with that
       */
     def scan(that: T): Set[T] = {
         val(x, y, xOff, yOff) = spaceLocation(that)
         try {
-            val inSpace = (for (o <- space(x)(y)) yield o).toSet
-            val inSpaceOff = (for (o <- space(xOff)(yOff)) yield o).toSet
-            inSpace ++ inSpaceOff - that
+            val inSpace = space(x)(y)
+            val inSpaceOff = spaceOff(xOff)(yOff)
+            Set() ++ inSpace ++ inSpaceOff - that
         }
         catch {
-            case e: NullPointerException => Set()
+            case e: NullPointerException => Set() // This shouldn't ever happen
         }
     }
 

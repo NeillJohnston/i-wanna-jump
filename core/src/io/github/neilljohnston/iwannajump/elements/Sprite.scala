@@ -105,10 +105,10 @@ object Sprite {
           * @param that     Colliding AABB
           */
         def resolve(delta: Float, that: AABB): Unit = that match {
-            case _: PlatformAABB => resolvePlatform(delta, that.asInstanceOf[PlatformAABB])
-            case _: SlopeAABB => resolveSlope(delta, that.asInstanceOf[SlopeAABB])
-            case _: Sprite => resolveFull(delta, that.asInstanceOf[Sprite])
-            case _: AABB => resolveFull(delta, that)
+            case a: PlatformAABB => resolvePlatform(delta, a)
+            case a: SlopeAABB => resolveSlope(delta, a)
+            case a: Sprite => resolveSprite(delta, a)
+            case a: AABB => resolveFull(delta, a)
         }
 
         /**
@@ -180,6 +180,16 @@ object Sprite {
                 }
             }
         }
+
+        /**
+          * Resolves a sprite-on-sprite collision, and provides nuance to sprite interactions.
+          * Since there are so many different ways of sprites interacting, this function is left unimplemented.
+          * This method should be overridden to declare different types of sprite collisions, for each specific sprite.
+          * Developers can implement sprite collisions however they want, but be aware that there is no default.
+          * @param delta    Time passed since last step
+          * @param that     Colliding Sprite
+          */
+        def resolveSprite(delta: Float, that: Sprite): Unit = {}
 
         /**
           * Search available tiles to find collisions.

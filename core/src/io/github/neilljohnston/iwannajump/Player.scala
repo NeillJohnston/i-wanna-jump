@@ -9,8 +9,9 @@ import io.github.neilljohnston.iwannajump.engine.IWannaJump.Ps
 import io.github.neilljohnston.iwannajump.elements.Sprite.KeyControllable
 
 /**
-  * Created by Neill on 4/16/2017.
+  * Playaaaa.
   */
+//  TODO remove this class, it's a test anyway.
 class Player($x: Float, $y: Float) extends FullSprite with KeyControllable with exmath.Smooth {
     // Set player location based on class params
     x = $x

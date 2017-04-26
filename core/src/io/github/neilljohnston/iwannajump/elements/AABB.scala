@@ -6,12 +6,26 @@ import io.github.neilljohnston.iwannajump.engine.IWannaJump.Ps
 /**
   * A simple axis-aligned bounding box (AABB).
   */
-class AABB extends Rectangle {}
+class AABB extends Rectangle {
+    def constructFrom(that: Rectangle): AABB = {
+        x = that.x
+        y = that.y
+        width = that.width
+        height = that.height
+        this
+    }
+}
 
 /**
   * AABB companion object, with the actually useful bits. The AABB class is just an extension of Rectangle.
   */
 object AABB {
+    /**
+      * An AABB that contains some functionality for implementing friction force.
+      * @param mu   Amount of friction
+      */
+    class FrictionAABB(val mu: Float) extends AABB {}
+
     /**
       * An AABB with only top collisions.
       */
@@ -59,24 +73,18 @@ object AABB {
       * @return The new AABB
       */
     def factory(x: Float, y: Float, aabb: String): AABB = {
-        val t = aabb match {
-            case "platform" => new PlatformAABB
+        val from = new Rectangle(x, y, Ps, Ps)
+        aabb match {
+            case "platform" => new PlatformAABB().constructFrom(from)
             case "cosmetic" => new NoneAABB
-            case "slope.1" => new SlopeAABB(1, 0)
-            case "slope.-1" => new SlopeAABB(-1, 1)
-            case "slope.0.5,0" => new SlopeAABB(0.5f, 0)
-            case "slope.0.5,0.5" => new SlopeAABB(0.5f, 0.5f)
-            case "slope.-0.5,1" => new SlopeAABB(-0.5f, 1)
-            case "slope.-0.5,0.5" => new SlopeAABB(-0.5f, 0.5f)
-            case _ => new AABB
+            case "slope.1" => new SlopeAABB(1, 0).constructFrom(from)
+            case "slope.-1" => new SlopeAABB(-1, 1).constructFrom(from)
+            case "slope.0.5,0" => new SlopeAABB(0.5f, 0).constructFrom(from)
+            case "slope.0.5,0.5" => new SlopeAABB(0.5f, 0.5f).constructFrom(from)
+            case "slope.-0.5,1" => new SlopeAABB(-0.5f, 1).constructFrom(from)
+            case "slope.-0.5,0.5" => new SlopeAABB(-0.5f, 0.5f).constructFrom(from)
+            case _ => new AABB().constructFrom(from)
         }
-        if(aabb != "cosmetic") {
-            t.x = x
-            t.y = y
-            t.width = Ps
-            t.height = Ps
-        }
-        t
     }
 
     /**
@@ -89,9 +97,6 @@ object AABB {
       * @return The new AABB
       */
     def factory(x: Float, y: Float, width: Float, height: Float, aabb: String): AABB = {
-        val t = factory(x, y, aabb)
-        t.width = width
-        t.height = height
-        t
+        factory(x, y, aabb).constructFrom(new Rectangle(x, y, width, height))
     }
 }

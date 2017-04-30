@@ -126,7 +126,7 @@ abstract class GameScreen(game: IWannaJump, val mapFile: String) extends ScreenA
             bounds.merge(s)
             newCamX = bounds.x + bounds.width / 2
             newCamY = bounds.y + bounds.height / 2
-            newCamZoom += delta * smoothTo(camera.zoom,
+            newCamZoom += delta * lerp(camera.zoom,
                 4 * math.max(bounds.width / camera.viewportWidth, bounds.height / camera.viewportHeight),
                 4.0f)
         }

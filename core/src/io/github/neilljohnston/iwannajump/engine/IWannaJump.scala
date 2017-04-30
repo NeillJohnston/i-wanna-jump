@@ -3,7 +3,6 @@ package io.github.neilljohnston.iwannajump.engine
 import com.badlogic.gdx.Game
 import com.badlogic.gdx.graphics.g2d.{BitmapFont, SpriteBatch}
 import com.badlogic.gdx.maps.MapProperties
-import io.github.neilljohnston.iwannajump.Player
 import io.github.neilljohnston.iwannajump.elements.Sprite
 
 class IWannaJump extends Game {
@@ -18,13 +17,7 @@ class IWannaJump extends Game {
         batch = new SpriteBatch()
         font = new BitmapFont()
 
-        val gameScreen = new GameScreen(this, "test.tmx") {
-            override def spriteFactory(spriteType: String, x: Float,y: Float, spriteProperties: MapProperties): Sprite = spriteType match {
-                case "player" => new Player(x, y)
-                case _ => throw new NullPointerException
-            }
-        }
-        setScreen(gameScreen)
+        // Set the screen to a new game screen in here
     }
 
     /**

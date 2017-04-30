@@ -221,13 +221,12 @@ object Sprite {
       */
     trait Gravity extends Sprite with Smooth {
         val g: Float = -24.0f * Ps
-        val gMax: Float = -16.0f * Ps
 
         /**
           * Apply gravity to the sprite.
           * @param delta    Time passed since last step
           */
-        def applyGravity(delta: Float): Unit = { v.y = -accelWithMax(-v.y, -gMax, -g * delta) }
+        def applyGravity(delta: Float): Unit = { v.y += g * delta }
     }
 
     /**

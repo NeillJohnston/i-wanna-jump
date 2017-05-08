@@ -3,7 +3,8 @@ package io.github.neilljohnston.iwannajump.desktop;
 import com.badlogic.gdx.Files;
 import com.badlogic.gdx.backends.lwjgl.LwjglApplication;
 import com.badlogic.gdx.backends.lwjgl.LwjglApplicationConfiguration;
-import io.github.neilljohnston.iwannajump.engine.IWannaJump;
+import io.github.neilljohnston.iwannajump.java.engine.IWJEnvironment;
+import io.github.neilljohnston.iwannajump.java.test.IWJTest;
 
 public class DesktopLauncher {
 	public static void main (String[] arg) {
@@ -14,6 +15,6 @@ public class DesktopLauncher {
 		config.addIcon("icon-16x.png", Files.FileType.Internal);
 		config.addIcon("icon-32x.png", Files.FileType.Internal);
 		config.addIcon("icon-128x.png", Files.FileType.Internal);
-		new LwjglApplication(new IWannaJump(), config);
+		new LwjglApplication(new IWJTest(), config);
 	}
 }

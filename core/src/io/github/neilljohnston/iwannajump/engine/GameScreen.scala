@@ -14,7 +14,7 @@ import io.github.neilljohnston.iwannajump.engine.IWannaJump.Ps
 
 /**
   * A screen that plays the game.
-  * @param game     IWannaJump base object
+  * @param game     IWJEnvironment base object
   * @param mapFile  Path of the Tiled map
   */
 abstract class GameScreen(game: IWannaJump, val mapFile: String) extends ScreenAdapter with Smooth {

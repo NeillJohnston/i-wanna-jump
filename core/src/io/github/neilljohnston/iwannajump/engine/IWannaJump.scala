@@ -40,7 +40,7 @@ class IWannaJump extends Game {
     def runCommand(command: String): Unit = {
         val t = command.stripMargin.split("\\s+")
         t(0) match {
-            //case "map" => setScreen(new GameScreen(this, t(1)))
+            //case "map" => setScreen(new IWJScreen(this, t(1)))
             case "stop" => dispose()
             case echo => t(1) match {
                 case "-twice" => println(t(2) + " " + t(2))
@@ -51,7 +51,7 @@ class IWannaJump extends Game {
 }
 
 /**
-  * IWannaJump companion object.
+  * IWJEnvironment companion object.
   */
 object IWannaJump {
     // Default pixel scale size

@@ -62,7 +62,7 @@ abstract class Sprite extends AABB {
 }
 
 /**
-  * AABBSprite companion object, featuring sprite traits that can aid the creation extension of the AABBSprite class.
+  * SpriteAABB companion object, featuring sprite traits that can aid the creation extension of the SpriteAABB class.
   */
 object Sprite {
     val debugTexture = new Texture(Gdx.files.internal("debug-sprite.png"))
@@ -187,7 +187,7 @@ object Sprite {
           * This method should be overridden to declare different types of sprite collisions, for each specific sprite.
           * Developers can implement sprite collisions however they want, but be aware that there is no default.
           * @param delta    Time passed since last step
-          * @param that     Colliding AABBSprite
+          * @param that     Colliding SpriteAABB
           */
         def resolveSprite(delta: Float, that: Sprite): Unit = {}
 
@@ -315,10 +315,10 @@ object Sprite {
 }
 
 /**
-  * An abstract extension of AABBSprite that includes every "typical" feature trait: Solid, Gravity. Used to minimize
+  * An abstract extension of SpriteAABB that includes every "typical" feature trait: Solid, Gravity. Used to minimize
   * boilerplate, and has an implementation of step that correctly orders the various steps.
   */
-// TODO update this class as I add more AABBSprite traits.
+// TODO update this class as I add more SpriteAABB traits.
 abstract class FullSprite extends Sprite with Solid with Gravity {
     /**
       * Step with gravity and collisions in mind.

@@ -10,17 +10,13 @@ import com.badlogic.gdx.maps.tiled.TmxMapLoader;
 import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.utils.viewport.FitViewport;
-import io.github.neilljohnston.iwannajump.java.elements.AABB;
-import io.github.neilljohnston.iwannajump.java.elements.AABBSprite;
-import io.github.neilljohnston.iwannajump.java.elements.SolidAABBSprite;
+import io.github.neilljohnston.iwannajump.java.elements.*;
+import io.github.neilljohnston.iwannajump.java.elements.SpriteAABB;
 
 import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.Iterator;
 import java.util.List;
 
 import static io.github.neilljohnston.iwannajump.java.engine.IWJEnvironment.*;
-
 
 /**
  * A screen that can be used for tile-based games. The map itself is loaded from a Tiled .tmx map.
@@ -71,7 +67,7 @@ public abstract class IWJScreen extends ScreenAdapter {
     /**
      * Sprites broad-phaser.
      */
-    protected BroadAreaMap<AABBSprite> sprites;
+    protected BroadAreaMap<SpriteAABB> sprites;
 
     /**
      * Tiles grid.
@@ -109,6 +105,7 @@ public abstract class IWJScreen extends ScreenAdapter {
         mapRenderer = new OrthogonalTiledMapRenderer(map, 1, game.batch);
         mapRenderer.setView(camera);
         sprites = new SplitGridAreaMap();
+        tiles = new TileGridMap((TiledMapTileLayer) map.getLayers().get(LAYER_TILES), this);
 
         // Initialize the sprites map
         TiledMapTileLayer spritesTiles = (TiledMapTileLayer) map.getLayers().get(LAYER_SPRITES);
@@ -136,9 +133,9 @@ public abstract class IWJScreen extends ScreenAdapter {
      * @param x             X-coordinate of the sprite
      * @param y             Y-coordinate of the sprite
      * @param description   Description of the sprite
-     * @return A {@link AABBSprite} that matches the description given
+     * @return A {@link SpriteAABB} that matches the description given
      */
-    abstract public AABBSprite spriteFactory(float x, float y, String description);
+    abstract public SpriteAABB spriteFactory(float x, float y, String description);
 
     /**
      * Construct a tile from the Tiled map.
@@ -160,13 +157,11 @@ public abstract class IWJScreen extends ScreenAdapter {
      * @param delta Time since last step (s)
      */
     protected void step(float delta) {
-        for(AABBSprite sprite : sprites) {
-            if(sprite instanceof SolidAABBSprite) {
-                for (int y = 0; y < sprite.height / PS; y++) {
-                    for (int x = 0; y < sprite.width / PS; x++) {
-                        // TODO queue sprite collisions
-                    }
-                }
+        for(SpriteAABB sprite : sprites) {
+            if(sprite instanceof SolidSpriteAABB) {
+                for(AABB tile : tiles.scan(sprite.getCollisionArea(delta)))
+                    if(tile != null)
+                        ((SolidSpriteAABB) sprite).addToQueue(tile);
                 sprite.step(delta);
             }
         }
@@ -179,7 +174,7 @@ public abstract class IWJScreen extends ScreenAdapter {
      */
     protected void trackCamera(float delta) {
         Rectangle bounds = new Rectangle(camera.position.x, camera.position.y, 0, 0);
-        for(AABBSprite s : sprites)
+        for(SpriteAABB s : sprites)
             bounds.merge(s);
         float z = Math.max(bounds.width / camera.viewportWidth, bounds.height / camera.viewportHeight);
         camera.position.x = bounds.x + bounds.width / 2;
@@ -191,13 +186,13 @@ public abstract class IWJScreen extends ScreenAdapter {
      * Drawing order, will draw in the order specified by layerPriority by default.
      * Override to change the way that layers are drawn (not recommended).
      */
-    protected void drawLayers() {
+    protected void drawLayers(float delta) {
         // First draw all tile layers
         for(String layer : layerPriority)
             mapRenderer.renderTileLayer((TiledMapTileLayer) map.getLayers().get(layer));
         // Then draw the sprites
-        for(AABBSprite sprite : sprites)
-            sprite.draw(game.batch);
+        for(SpriteAABB sprite : sprites)
+            sprite.draw(game.batch, delta);
     }
 
     /**
@@ -242,11 +237,11 @@ public abstract class IWJScreen extends ScreenAdapter {
         viewport.apply();
         game.batch.setProjectionMatrix(camera.combined);
         game.batch.begin();
-        drawLayers();
+        drawLayers(delta);
         game.batch.end();
 
         // Draw extra
-        drawExtra();
+        drawExtra(delta);
     }
 
     /**
@@ -263,7 +258,7 @@ public abstract class IWJScreen extends ScreenAdapter {
      * the entire draw function.
      * This method is always run right after draw.
      */
-    protected void drawExtra() {}
+    protected void drawExtra(float delta) {}
 
 
 

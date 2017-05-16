@@ -8,24 +8,24 @@ import java.util.HashSet;
  *
  * @author Neill Johnston
  */
-abstract public class SolidAABBSprite extends AABBSprite {
+abstract public class SolidSpriteAABB extends SpriteAABB {
     /**
      * The available AABBs to check for collisions.
      */
-    private HashSet<AABB> queue;
+    protected HashSet<AABB> queue;
 
     /**
      * All collision reaction types for this sprite.
      */
-    private HashMap<Class<AABB>, Collision> collisions;
+    protected HashMap<Class<? extends AABB>, Collision> collisions;
 
     /**
      * Initialize.
      */
-    public SolidAABBSprite() {
+    public SolidSpriteAABB() {
         super();
         queue = new HashSet<AABB>();
-        collisions = new HashMap<Class<AABB>, Collision>();
+        collisions = new HashMap<Class<? extends AABB>, Collision>();
 
         // Add to the collision reactions
         collisions.put(AABB.class, new SquareCollision());
@@ -47,7 +47,20 @@ abstract public class SolidAABBSprite extends AABBSprite {
      */
     public void resolveQueue(float delta) {
         for(AABB o : queue) {
-            collisions.get(o.getClass()).resolve(o, this, delta);
+            try {
+                Collision c = collisions.get(o.type());
+                c.resolve(o, this, delta);
+            } catch(NullPointerException e) {
+                System.err.println("Unchecked collision error");
+                e.printStackTrace();
+            }
         }
+        queue.clear();
+    }
+
+    @Override
+    public void step(float delta) {
+        resolveQueue(delta);
+        super.step(delta);
     }
 }

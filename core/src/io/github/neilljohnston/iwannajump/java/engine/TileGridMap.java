@@ -11,10 +11,14 @@ import static io.github.neilljohnston.iwannajump.java.engine.IWJEnvironment.PROP
 import static io.github.neilljohnston.iwannajump.java.engine.IWJEnvironment.PS;
 
 /**
- * Created by Neill on 5/7/2017.
+ * A simple grid of tiles, used for collision detection.
  */
 public class TileGridMap implements BroadAreaMap<AABB> {
-    private ArrayList<ArrayList<AABB>> grid;
+    private static final AABB NOT = new AABB(Float.MIN_VALUE, 0, 0, 0);
+
+    private AABB[][] grid;
+    public final int gridWidth;
+    public final int gridHeight;
 
     /**
      * Construct an entire grid from a layer using {@link IWJScreen#tileFactory(float, float, String) tileFactory}.
@@ -22,15 +26,16 @@ public class TileGridMap implements BroadAreaMap<AABB> {
      * @param layer TiledMapTileLayer that holds the tiles
      */
     public TileGridMap(TiledMapTileLayer layer, IWJScreen screen) {
-        grid = new ArrayList<ArrayList<AABB>>();
+        this.gridWidth = layer.getWidth();
+        this.gridHeight = layer.getHeight();
+        grid = new AABB[gridHeight][gridWidth];
 
         for(int y = 0; y < layer.getHeight(); y++) {
-            grid.add(new ArrayList<AABB>());
             for(int x = 0; x < layer.getWidth(); x++) {
                 try {
                     TiledMapTileLayer.Cell cell = layer.getCell(x, y);
                     String description = (String) cell.getTile().getProperties().get(PROP_TILE_DESCRIPTION);
-                    grid.get(y).add(screen.tileFactory(x * PS, y * PS, description));
+                    grid[y][x] = screen.tileFactory(x * PS, y * PS, description);
                 } catch(NullPointerException e) {
                     // Do nothing, not our problem :D
                 }
@@ -52,10 +57,10 @@ public class TileGridMap implements BroadAreaMap<AABB> {
             @Override
             public Iterator<AABB> iterator() {
                 return new Iterator<AABB>() {
-                    int ix = x;
-                    int iy = y;
                     int w = Math.max(width, 0);
                     int h = Math.max(height, 0);
+                    int ix = Math.min(Math.max(0, x), gridWidth - w);
+                    int iy = Math.min(Math.max(0, y), gridHeight - h);
 
                     @Override
                     public boolean hasNext() {
@@ -64,14 +69,20 @@ public class TileGridMap implements BroadAreaMap<AABB> {
 
                     @Override
                     public AABB next() {
-                        AABB tile = at(ix, iy);
-                        if(ix == x + w) {
-                            ix = x;
-                            iy++;
-                        } else {
-                            ix++;
+                        AABB tile = null;
+                        try {
+                            tile = grid[iy][ix];
+                        } catch(ArrayIndexOutOfBoundsException e) {
+                            return null;
+                        } finally {
+                            if (ix >= x + w) {
+                                ix = Math.max(0, x);
+                                iy++;
+                            } else {
+                                ix++;
+                            }
                         }
-                        return at(ix, iy);
+                        return tile;
                     }
 
                     @Override
@@ -84,17 +95,6 @@ public class TileGridMap implements BroadAreaMap<AABB> {
     }
 
     /**
-     * Convenience method to return a single tile, at a location (x, y).
-     *
-     * @param x X-coordinate of the tile
-     * @param y Y-coordinate of the tile
-     * @return The tile at (x, y)
-     */
-    public AABB at(int x, int y) {
-        return grid.get(y).get(x);
-    }
-
-    /**
      * Replace or add a tile.
      *
      * @param body  Body to be added
@@ -104,7 +104,7 @@ public class TileGridMap implements BroadAreaMap<AABB> {
         int x = (int) body.x / PS;
         int y = (int) body.y / PS;
 
-        grid.get(y).add(x, body);
+        grid[y][x] = body;
     }
 
     /**
@@ -117,7 +117,7 @@ public class TileGridMap implements BroadAreaMap<AABB> {
         int x = (int) body.x / PS;
         int y = (int) body.y / PS;
 
-        grid.get(y).remove(x);
+        grid[y][x] = null;
     }
 
     /**
@@ -128,7 +128,7 @@ public class TileGridMap implements BroadAreaMap<AABB> {
      */
     @Override
     public Iterable<AABB> scan(AABB body) {
-        return range((int) body.x / PS, (int) body.y / PS, (int) body.width / PS, (int) body.height / PS);
+        return range((int) body.x / PS, (int) body.y / PS, 1 + (int) body.width / PS, 1 + (int) body.height / PS);
     }
 
     /**
@@ -140,7 +140,7 @@ public class TileGridMap implements BroadAreaMap<AABB> {
     /**
      * Unimplemented on purpose because nobody should ever have to iterate over every tile in a layer. Ever!
      *
-     * @return An iterator for every tile
+     * @return A nothing
      */
     @Override
     public Iterator<AABB> iterator() {

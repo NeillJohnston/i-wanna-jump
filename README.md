@@ -8,3 +8,5 @@ Originally it was made in Scala, then when I realized that Scala's backwards com
 ## version
 At the time of writing this readme (2017-05-16), IWJ isn't even near completed. Pre-alpha, if you will.
 Still a bunch of ground to cover and bugs to test before I dare call this an "alpha" project. Author's note: that's probably a reasonable goal for about two weeks from now.
+
+Oh yeah also the project structure is absolutely insufferably messy because I keep forgetting to remove the IntelliJ project files and structure from git. Hahaaaaaa whoops.

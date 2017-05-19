@@ -84,4 +84,12 @@ public class IWJEnvironment extends Game {
         if(messagePriority <= priority)
             System.out.println(message);
     }
+
+    /**
+     * Dispose of resources.
+     */
+    @Override
+    public void dispose() {
+        super.dispose();
+    }
 }

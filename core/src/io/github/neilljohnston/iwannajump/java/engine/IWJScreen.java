@@ -158,12 +158,13 @@ public abstract class IWJScreen extends ScreenAdapter {
      */
     protected void step(float delta) {
         for(SpriteAABB sprite : sprites) {
-            if(sprite instanceof SolidSpriteAABB) {
-                for(AABB tile : tiles.scan(sprite.getCollisionArea(delta)))
-                    if(tile != null)
-                        ((SolidSpriteAABB) sprite).addToQueue(tile);
-                sprite.step(delta);
-            }
+            for(SpriteAABB thatSprite : sprites.scan(sprite))
+                if(thatSprite != null)
+                    sprite.addToQueue(thatSprite);
+            for(AABB tile : tiles.scan(sprite.getCollisionArea(delta)))
+                if(tile != null)
+                    sprite.addToQueue(tile);
+            sprite.step(delta);
         }
     }
 

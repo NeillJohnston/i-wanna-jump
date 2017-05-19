@@ -35,7 +35,7 @@ public class TileGridMap implements BroadAreaMap<AABB> {
                 try {
                     TiledMapTileLayer.Cell cell = layer.getCell(x, y);
                     String description = (String) cell.getTile().getProperties().get(PROP_TILE_DESCRIPTION);
-                    grid[y][x] = screen.tileFactory(x * PS, y * PS, description);
+                    grid[y][x] = screen.tileFactory(x * PS, y * PS, description == null ? "" : description);
                 } catch(NullPointerException e) {
                     // Do nothing, not our problem :D
                 }

@@ -4,8 +4,11 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
 
+import java.util.HashMap;
+import java.util.HashSet;
+
 /**
- * A mobile AABB.
+ * A mobile AABB with collision detection.
  *
  * @author Neill Johnston
  */
@@ -16,10 +19,29 @@ public abstract class SpriteAABB extends AABB {
     public Vector2 v;
 
     /**
+     * The available AABBs to check for collisions.
+     */
+    protected HashSet<AABB> queue;
+
+    /**
+     * All collision reaction types for this sprite.
+     */
+    protected HashMap<Class<? extends AABB>, Collision> collisions;
+
+
+
+    /**
      * Initialize.
      */
     public SpriteAABB() {
+        super();
+
         v = new Vector2();
+        queue = new HashSet<AABB>();
+        collisions = new HashMap<Class<? extends AABB>, Collision>();
+
+        // Add to the collision reactions
+        collisions.put(AABB.class, new SquareCollision());
     }
 
     /**
@@ -28,6 +50,8 @@ public abstract class SpriteAABB extends AABB {
      * @param delta Time since last step (s)
      */
     public void step(float delta) {
+        resolveQueue(delta);
+
         x += v.x * delta;
         y += v.y * delta;
     }
@@ -39,6 +63,34 @@ public abstract class SpriteAABB extends AABB {
      * @param batch SpriteBatch to draw to
      */
     abstract public void draw(SpriteBatch batch, float delta);
+
+    /**
+     * Add a possible collision to the queue.
+     *
+     * @param aabb  The new AABB to collision check
+     */
+    public void addToQueue(AABB aabb) {
+        queue.add(aabb);
+    }
+
+    /**
+     * Resolve all queued collisions.
+     *
+     * @param delta Time since last step (s)
+     */
+    public void resolveQueue(float delta) {
+        for(AABB o : queue) {
+            try {
+                Collision c = collisions.get(o.type());
+                c.resolve(o, this, delta);
+            } catch(NullPointerException e) {
+                System.err.printf("Unchecked collision error: %s on %s\n", o.type(), this.type());
+            } catch(Exception e) {
+                e.printStackTrace();
+            }
+        }
+        queue.clear();
+    }
 
     /**
      * Get the possible area of collision (for collision detection).

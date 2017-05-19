@@ -28,7 +28,9 @@ public class SplitGridAreaMap implements BroadAreaMap<SpriteAABB> {
 
     @Override
     public Set<SpriteAABB> scan(SpriteAABB body) {
-        return sprites;
+        HashSet<SpriteAABB> r = new HashSet<SpriteAABB>(sprites);
+        r.remove(body);
+        return r;
     }
 
     @Override

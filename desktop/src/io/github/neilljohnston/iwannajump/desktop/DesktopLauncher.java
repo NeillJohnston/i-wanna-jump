@@ -3,8 +3,7 @@ package io.github.neilljohnston.iwannajump.desktop;
 import com.badlogic.gdx.Files;
 import com.badlogic.gdx.backends.lwjgl.LwjglApplication;
 import com.badlogic.gdx.backends.lwjgl.LwjglApplicationConfiguration;
-import io.github.neilljohnston.iwannajump.java.engine.IWJEnvironment;
-import io.github.neilljohnston.iwannajump.java.test.IWJTest;
+import io.github.neilljohnston.iwannajump.test.IWJTest;
 
 public class DesktopLauncher {
 	public static void main (String[] arg) {

@@ -26,10 +26,7 @@ public class SquareCollision implements Collision<AABB, SpriteAABB> {
         if(xyStep.overlaps(pro)) {
             // Handle the x half of collisions first
             if(xStep.overlaps(pro)) {
-                if(dx < 0)
-                    con.x = pro.x + pro.width;
-                else if(dx > 0)
-                    con.x = pro.x - con.width;
+                con.x = dx < 0 ? pro.x + pro.width : pro.x - con.width;
                 con.v.x = 0;
             }
 
@@ -38,10 +35,7 @@ public class SquareCollision implements Collision<AABB, SpriteAABB> {
 
             // Handle the y half of collision second
             if(yStep.overlaps(pro)) {
-                if(dy < 0)
-                    con.y = pro.y + pro.height;
-                else if(dy > 0)
-                    con.y = pro.y - con.height;
+                con.y = dy < 0 ? pro.y + pro.height : pro.y - con.height;
                 con.v.y = 0;
             }
         }

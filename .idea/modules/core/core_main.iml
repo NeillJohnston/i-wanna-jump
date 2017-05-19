@@ -6,6 +6,9 @@
     <content url="file://$MODULE_DIR$/../../../core/src">
       <sourceFolder url="file://$MODULE_DIR$/../../../core/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/../../../core/src/main/resources" type="java-resource" />
+      <excludeFolder url="file://$MODULE_DIR$/../../../core/src/io/github/neilljohnston/iwannajump/elements" />
+      <excludeFolder url="file://$MODULE_DIR$/../../../core/src/io/github/neilljohnston/iwannajump/engine" />
+      <excludeFolder url="file://$MODULE_DIR$/../../../core/src/io/github/neilljohnston/iwannajump/exmath" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
